@@ -1,0 +1,42 @@
+{
+  "name": "grunt-wget",
+  "version": "0.0.1",
+  "description": "Download web contents via Grunt.",
+  "homepage": "https://github.com/shootaroo/grunt-wget",
+  "author": {
+    "name": "shootaroo",
+    "email": "shotaro.tsubouchi@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/shootaroo/grunt-wget.git"
+  },
+  "bugs": "https://github.com/shootaroo/grunt-wget/issues",
+  "license": "MIT",
+  "engines": {
+    "node": ">=0.8.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "files": [
+    "tasks"
+  ],
+  "keywords": [
+    "grunt",
+    "gruntplugin",
+    "wget"
+  ],
+  "dependencies": {
+    "async": "~0.2.10"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.0",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-jshint": "~0.8.0",
+    "jit-grunt": "~0.2.0"
+  },
+  "peerDependencies": {
+    "grunt": "~0.4.0"
+  }
+}
