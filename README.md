@@ -11,7 +11,7 @@ npm install grunt-wget --save-dev
 
 ## Usage
 
-```
+```js
 module.exports = function (grunt) {
   grunt.initConfig({
 
