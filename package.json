@@ -1,7 +1,7 @@
 {
   "name": "grunt-wget",
   "version": "0.0.1",
-  "description": "Download web contents via Grunt.",
+  "description": "Wget plugin for Grunt.",
   "homepage": "https://github.com/shootaroo/grunt-wget",
   "author": {
     "name": "shootaroo",
