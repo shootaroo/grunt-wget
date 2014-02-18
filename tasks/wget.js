@@ -7,6 +7,10 @@ module.exports = function (grunt) {
 
   grunt.registerMultiTask('wget', 'Download web contents.', function () {
 
+    var options = this.options({
+      overwrite: false
+    });
+
     var done = this.async();
     var log = grunt.log;
     var count = 0;
@@ -16,7 +20,7 @@ module.exports = function (grunt) {
       async.forEach(filePair.orig.src, function (src, done) {
         var srcUrl = url.parse(src);
         var dest = isSingle ? filePair.dest : path.join(filePair.dest, srcUrl.pathname.split("/").pop());
-        if (grunt.file.exists(dest)) {
+        if (!options.overwrite && grunt.file.exists(dest)) {
           return done();
         }
         log.verbose.writeln('Downloading', src.cyan, '->', dest.cyan);
