@@ -13,30 +13,35 @@ module.exports = function (grunt) {
       all: '*.js'
     },
     wget: {
-      common: {
+      compact: {
+        src: 'http://code.jquery.com/jquery-1.11.0.min.js',
+        dest: 'tmp/jquery.js'
+      },
+      basic: {
+        options: {
+          baseUrl: 'http://code.jquery.com/'
+        },
         src: [
-          'http://code.jquery.com/jquery-1.11.0.min.js',
-          'http://code.jquery.com/jquery-2.1.0.min.js',
+          'jquery-1.11.0.min.js',
+          'jquery-2.1.0.min.js'
         ],
-        dest: 'tmp/common'
+        dest: 'tmp'
       },
-      single: {
-        files: [
-          {
-            src: 'http://code.jquery.com/jquery-1.11.0.min.js',
-            dest: 'tmp/single/1.11.0/jquery.js'
-          },
-          {
-            src: 'http://code.jquery.com/jquery-2.1.0.min.js',
-            dest: 'tmp/single/2.1.0/jquery.js'
-          }
-        ]
-      },
-      oldfashion: {
+      filesObject: {
+        options: {
+          baseUrl: 'http://code.jquery.com/'
+        },
         files: {
-          'tmp/oldfashion/jquery-1.11.0.js': 'http://code.jquery.com/jquery-1.11.0.js',
-          'tmp/oldfashion/jquery-2.1.0.js': 'http://code.jquery.com/jquery-2.1.0.js',
+          'tmp/jquery-1x.js': 'jquery-1.11.0.min.js',
+          'tmp/jquery-2x.js': 'jquery-2.1.0.min.js'
         }
+      },
+      overwrite: {
+        options: {
+          overwrite: true
+        },
+        src: 'http://code.jquery.com/jquery-2.1.0.min.js',
+        dest: 'tmp/jquery.js'
       }
     }
   });
