@@ -1,6 +1,6 @@
 {
   "name": "grunt-wget",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Wget plugin for Grunt.",
   "homepage": "https://github.com/shootaroo/grunt-wget",
   "author": {
