@@ -51,8 +51,12 @@ module.exports = function (grunt) {
           baseUrl: 'http://code.jquery.com/'
         },
         src: [
-          'jquery-1.11.0.min.js',
-          'jquery-2.1.0.min.js'
+          'jquery-2.0.3.js',
+          'jquery-2.0.3.min.js',
+          'jquery-2.0.3.min.map',
+          'jquery-1.10.2.js',
+          'jquery-1.10.2.min.js',
+          'jquery-1.10.2.min.map'
         ],
         dest: 'tmp'
       },
