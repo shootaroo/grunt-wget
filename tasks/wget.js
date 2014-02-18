@@ -18,6 +18,9 @@ module.exports = function (grunt) {
     async.forEach(this.files, function (filePair, done) {
       var isSingle = filePair.orig.src.length === 1;
       async.forEach(filePair.orig.src, function (src, done) {
+        if (options.baseUrl) {
+          src = options.baseUrl + src;
+        }
         var srcUrl = url.parse(src);
         var dest = isSingle ? filePair.dest : path.join(filePair.dest, srcUrl.pathname.split("/").pop());
         if (!options.overwrite && grunt.file.exists(dest)) {
