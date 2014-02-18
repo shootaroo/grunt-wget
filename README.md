@@ -9,7 +9,31 @@ Wget plugin for Grunt.
 npm install grunt-wget --save-dev
 ```
 
-## Usage
+
+## Wget task
+
+Run this task with the `grunt wget` command.
+
+Task targets, files and options may be specified according to the grunt Configuring tasks guide.
+
+
+### Options
+
+#### baseUrl
+
+Type: `String`
+
+This option is base url of download contents.
+
+#### overwrite
+
+Type: `Boolean`
+Default: `false`
+
+Whether to download the existing files. Set `true` to download the existing files.
+
+
+## Usage Example
 
 ```js
 module.exports = function (grunt) {
@@ -17,31 +41,29 @@ module.exports = function (grunt) {
 
     wget: {
 
-      common: {
+      compact: {
+        src: 'http://code.jquery.com/jquery-1.11.0.min.js',
+        dest: 'tmp/jquery.js'
+      },
+
+      basic: {
+        options: {
+          baseUrl: 'http://code.jquery.com/'
+        },
         src: [
-          'http://code.jquery.com/jquery-1.11.0.min.js',
-          'http://code.jquery.com/jquery-2.1.0.min.js',
+          'jquery-1.11.0.min.js',
+          'jquery-2.1.0.min.js'
         ],
-        dest: 'path/to'
+        dest: 'tmp'
       },
 
-      single: {
-        files: [
-          {
-            src: 'http://code.jquery.com/jquery-1.11.0.min.js',
-            dest: 'path/to/1.11.0/jquery.js'
-          },
-          {
-            src: 'http://code.jquery.com/jquery-2.1.0.min.js',
-            dest: 'path/to/2.1.0/jquery.js'
-          }
-        ]
-      },
-
-      oldfashion: {
+      filesObject: {
+        options: {
+          baseUrl: 'http://code.jquery.com/'
+        },
         files: {
-          'path/to/jquery-1.11.0.js': 'http://code.jquery.com/jquery-1.11.0.js',
-          'path/to/jquery-2.1.0.js': 'http://code.jquery.com/jquery-2.1.0.js',
+          'tmp/jquery-1x.js': 'jquery-1.11.0.min.js',
+          'tmp/jquery-2x.js': 'jquery-2.1.0.min.js'
         }
       }
     }
