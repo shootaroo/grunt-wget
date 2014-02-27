@@ -41,34 +41,26 @@ module.exports = function (grunt) {
 
     wget: {
 
-      compact: {
-        src: 'http://code.jquery.com/jquery-1.11.0.min.js',
-        dest: 'tmp/jquery.js'
+      basic: {
+        files: {
+          'js/lib/jquery-1.11.0.js': 'http://code.jquery.com/jquery-1.11.0.js',
+          'js/lib/jquery-2.1.0.js': 'http://code.jquery.com/jquery-2.1.0.js',
+          'js/lib/underscore-1.6.0.js': 'https://raw.github.com/jashkenas/underscore/1.6.0/underscore.js',
+          'js/lib/backbone.js-1.1.2.js': 'https://raw.github.com/jashkenas/backbone/1.1.2/backbone.js'
+        }
       },
 
-      basic: {
+      baseUrl: {
         options: {
           baseUrl: 'http://code.jquery.com/'
         },
         src: [
-          'jquery-2.0.3.js',
-          'jquery-2.0.3.min.js',
-          'jquery-2.0.3.min.map',
-          'jquery-1.10.2.js',
-          'jquery-1.10.2.min.js',
-          'jquery-1.10.2.min.map'
+          'jquery-2.1.0.js',
+          'jquery-2.1.0.min.js'
+          'jquery-1.11.0.js',
+          'jquery-1.11.0.min.js'
         ],
-        dest: 'tmp'
-      },
-
-      filesObject: {
-        options: {
-          baseUrl: 'http://code.jquery.com/'
-        },
-        files: {
-          'tmp/jquery-1x.js': 'jquery-1.11.0.min.js',
-          'tmp/jquery-2x.js': 'jquery-2.1.0.min.js'
-        }
+        dest: 'js/lib'
       }
     }
   });
