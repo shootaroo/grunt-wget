@@ -1,4 +1,4 @@
-# grunt-wget 0.1 [![NPM version](https://badge.fury.io/js/grunt-wget.png)](http://badge.fury.io/js/grunt-wget) [![Build Status](https://secure.travis-ci.org/shootaroo/grunt-wget.png?branch=master)](http://travis-ci.org/shootaroo/grunt-wget) [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
+# grunt-wget 0.1.1 [![NPM version](https://badge.fury.io/js/grunt-wget.png)](http://badge.fury.io/js/grunt-wget) [![Build Status](https://secure.travis-ci.org/shootaroo/grunt-wget.png?branch=master)](http://travis-ci.org/shootaroo/grunt-wget) [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
 
 Wget plugin for Grunt.
 
