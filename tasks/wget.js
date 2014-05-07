@@ -1,7 +1,9 @@
-var async = require('async');
 var fs = require('fs');
 var path = require('path');
 var url = require('url');
+
+var async = require('async');
+var request = require('request');
 
 module.exports = function (grunt) {
 
@@ -27,14 +29,16 @@ module.exports = function (grunt) {
           return done();
         }
         log.verbose.writeln('Downloading', src.cyan, '->', dest.cyan);
-        require(srcUrl.protocol === 'https:' ? 'https' : 'http').get(src, function (res) {
-          if (res.statusCode >= 400) {
-            return done(new Error(res.statusCode + ' ' + src));
+        request(src, function (err, res, body) {
+          if (err) {
+            done(err);
+          } else if (res.statusCode >= 400) {
+            done(new Error(res.statusCode + ' ' + src));
+          } else {
+            count++;
+            grunt.file.mkdir(isSingle ? path.dirname(filePair.dest) : filePair.dest);
+            fs.writeFile(dest, body, done);
           }
-          count++;
-          grunt.file.mkdir(isSingle ? path.dirname(filePair.dest) : filePair.dest);
-          res.pipe(fs.createWriteStream(dest));
-          res.on('end', done);
         });
       }, done);
     }, function (err) {

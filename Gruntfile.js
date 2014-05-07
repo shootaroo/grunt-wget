@@ -13,9 +13,11 @@ module.exports = function (grunt) {
       all: '*.js'
     },
     wget: {
-      compact: {
-        src: 'http://code.jquery.com/jquery-1.11.0.min.js',
-        dest: 'tmp/jquery.js'
+      simple: {
+        files: {
+          'tmp/jquery.js': 'http://code.jquery.com/jquery-1.11.1.js',
+          'tmp/underscore-1.6.0.min.js': 'https://raw.github.com/jashkenas/underscore/1.6.0/underscore-min.js'
+        }
       },
       basic: {
         options: {
@@ -26,15 +28,6 @@ module.exports = function (grunt) {
           'jquery-2.1.0.min.js'
         ],
         dest: 'tmp'
-      },
-      filesObject: {
-        options: {
-          baseUrl: 'http://code.jquery.com/'
-        },
-        files: {
-          'tmp/jquery-1x.js': 'jquery-1.11.0.min.js',
-          'tmp/jquery-2x.js': 'jquery-2.1.0.min.js'
-        }
       },
       overwrite: {
         options: {
