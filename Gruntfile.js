@@ -1,8 +1,9 @@
 'use strict';
 module.exports = function (grunt) {
 
-  require('jit-grunt')(grunt);
-  grunt.loadTasks('tasks');
+  require('jit-grunt')(grunt)({
+    loadTasks: 'tasks'
+  });
 
   grunt.initConfig({
     clean: ['tmp'],
