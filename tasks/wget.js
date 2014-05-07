@@ -1,3 +1,4 @@
+'use strict';
 var fs = require('fs');
 var path = require('path');
 var url = require('url');
@@ -24,7 +25,7 @@ module.exports = function (grunt) {
           src = options.baseUrl + src;
         }
         var srcUrl = url.parse(src);
-        var dest = isSingle ? filePair.dest : path.join(filePair.dest, srcUrl.pathname.split("/").pop());
+        var dest = isSingle ? filePair.dest : path.join(filePair.dest, srcUrl.pathname.split('/').pop());
         if (!options.overwrite && grunt.file.exists(dest)) {
           return done();
         }

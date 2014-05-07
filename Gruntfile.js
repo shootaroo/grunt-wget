@@ -11,7 +11,7 @@ module.exports = function (grunt) {
       options: {
         jshintrc: true
       },
-      all: '*.js'
+      all: ['*.js', 'tasks/**/*.js']
     },
     wget: {
       simple: {
