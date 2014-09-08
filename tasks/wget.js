@@ -30,11 +30,7 @@ module.exports = function (grunt) {
           return done();
         }
         log.verbose.writeln('Downloading', src.cyan, '->', dest.cyan);
-        var opts = { url: src };
-        if (options.encoding !== undefined) {
-          opts.encoding = options.encoding;
-        }
-        request(opts, function (err, res, body) {
+        request({ url: src, encoding: null }, function (err, res, body) {
           if (err) {
             done(err);
           } else if (res.statusCode >= 400) {
