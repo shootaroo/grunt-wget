@@ -30,7 +30,7 @@ module.exports = function (grunt) {
           return done();
         }
         log.verbose.writeln('Downloading', src.cyan, '->', dest.cyan);
-        request(src, function (err, res, body) {
+        request({ url: src, encoding: null }, function (err, res, body) {
           if (err) {
             done(err);
           } else if (res.statusCode >= 400) {
