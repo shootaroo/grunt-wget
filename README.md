@@ -56,7 +56,7 @@ module.exports = function (grunt) {
         },
         src: [
           'jquery-2.1.0.js',
-          'jquery-2.1.0.min.js'
+          'jquery-2.1.0.min.js',
           'jquery-1.11.0.js',
           'jquery-1.11.0.min.js'
         ],
