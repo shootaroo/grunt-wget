@@ -11,7 +11,8 @@ module.exports = function (grunt) {
   grunt.registerMultiTask('wget', 'Download web contents.', function () {
 
     var options = this.options({
-      overwrite: false
+      overwrite: false,
+      output: true
     });
 
     var done = this.async();
@@ -25,8 +26,8 @@ module.exports = function (grunt) {
           src = options.baseUrl + src;
         }
         var srcUrl = url.parse(src);
-        var dest = isSingle ? filePair.dest : path.join(filePair.dest, srcUrl.pathname.split('/').pop());
-        if (!options.overwrite && grunt.file.exists(dest)) {
+        var dest = !options.output ? false : (isSingle ? filePair.dest : path.join(filePair.dest, srcUrl.pathname.split('/').pop()));
+        if (!options.overwrite && options.output && grunt.file.exists(dest)) {
           return done();
         }
         log.verbose.writeln('Downloading', src.cyan, '->', dest.cyan);
@@ -37,8 +38,10 @@ module.exports = function (grunt) {
             done(new Error(res.statusCode + ' ' + src));
           } else {
             count++;
-            grunt.file.mkdir(isSingle ? path.dirname(filePair.dest) : filePair.dest);
-            fs.writeFile(dest, body, done);
+            if(dest) {
+              grunt.file.mkdir(isSingle ? path.dirname(filePair.dest) : filePair.dest);
+              fs.writeFile(dest, body, done);
+            } else done();
           }
         });
       }, done);
@@ -47,7 +50,7 @@ module.exports = function (grunt) {
         grunt.fail.warn(err);
       }
       if (count) {
-        log.writeln('Downloaded', String(count).cyan, count === 1 ? 'file' : 'files');
+        log.writeln(options.output ? 'Downloaded' : 'Requested', String(count).cyan, count === 1 ? 'file' : 'files');
       }
       done();
     });

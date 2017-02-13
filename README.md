@@ -32,6 +32,13 @@ Default: `false`
 
 Whether to download the existing files. Set `true` to download the existing files.
 
+#### output
+
+Type: `Boolean`
+Default: `true`
+
+Whether to ignore downloaded file. Set to `false` to prevent to create a local file (useful if you want just to trigger remote urls).
+
 
 ## Usage Example
 
@@ -61,6 +68,17 @@ module.exports = function (grunt) {
           'jquery-1.11.0.min.js'
         ],
         dest: 'js/lib'
+      },
+
+      trigger: {
+        options: {
+          baseUrl: 'http://my.production.server/',
+          output: false
+        },
+        src: [
+          'deploy-master.do',
+          'deploy-develop.do',
+        }
       }
     }
   });
